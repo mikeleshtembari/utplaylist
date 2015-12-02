@@ -17,7 +17,7 @@ Released under the MIT license - http://opensource.org/licenses/MIT
 ```
 * In order to create the playlists and populate them, you have to add a playlist in here
 ```html
-<!-- This is where you add a new playlist. -->
+	<!-- This is where you add a new playlist. -->
 	<!-- The href attribute must correspond with the ID attribute below, where you add the songs -->
 	<div id="selectPlaylist">
 		<a href="#playlist1">Metallica</a>
@@ -28,7 +28,7 @@ Released under the MIT license - http://opensource.org/licenses/MIT
 ```
 * Then create the playlist and populate it
 ```html
-<!-- For each playlist you add the songs. -->
+	<!-- For each playlist you add the songs. -->
 	<!-- The ID of playlist <div> must correspond with the href attribtue above, where you add the playlist -->
 	<div id="playlist">
 		<div id="playlist1">
