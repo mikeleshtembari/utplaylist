@@ -1,5 +1,5 @@
 # utplaylist 1.0.0
-###A relatively simple youtube playlist, with autoplay
+###A relatively simple youtube playlist with autoplay
 * You can include it in your website or use it locally
 * Made with HTML, CSS, jQuery and just a lil' from youtube_iframe_api
 
