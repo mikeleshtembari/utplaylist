@@ -10,7 +10,7 @@ I don't like the fact that I have to sign-in on youtube in order to create a pla
 Released under the MIT license - http://opensource.org/licenses/MIT
 
 ###Installation
-* Everything is already included in these 2 files, so you just need to copy them in your folder
+* Everything is already included in the 2 files `utplaylist.html` and `utplaylist.js`, so you just need to copy them in your folder
 * Don't forget to change the line below in case the script is in a different directory.
 ```html
 <script src="utplaylist.js"></script>
