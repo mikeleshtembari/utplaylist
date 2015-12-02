@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title>Simple Youtube Playlist</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Simple Youtube Playlist with JavaScript and jQuery">
+	<meta name="keywords" content="youtube playlist,playlist,jquery playlist,mikele,shtembari,mikele shtembari,html5">
+	<meta name="author" content="Mikele Shtembari">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="utplaylist.js"></script>
+	<style type="text/css">
+		html, html a {font-family:monospace;font-size:14px;color:gray;text-decoration:none;}
+		#youtubeFrame {}
+		.frameDefaultClass {width:500px;height:350px;}
+		.active {display:block;}
+		.hidden {display:none;}
+		.col-span-6 {width:630px;float:left;}
+		.col-span-2 {width:145px;float:left;border:solid 1px gray;margin:2px;background-color:#eee;padding:8px;border-radius:10px;text-align:center;}
+		#allOptions input[type=checkbox] {-webkit-transition:background-position .33s ease;transition:background-position .33s ease;-webkit-appearance:none;appearance:none;/* in firefox there is a bug preventing styling of checkboxes, so I'll leave it for now */width:38px;height:16px;border:solid darkgray 1px;border-radius:20px;background-position:-24px -1px;margin:7px 0px;}
+		#allOptions input[type=checkbox]:checked {background-position:-1px -1px;}
+		.optionBox {width:105px;float:left;padding-top:3px;margin:4px 0px;}
+		#pauseVideoOption, #quitSongOption {text-decoration:none;color:gray;background-color:#E9020F;color:white;padding:1px 10px;border-radius:30px;border:solid 1px gray;line-height:29px;font-size:14px;}
+		#pauseVideoOption:hover, #quitSongOption:hover {background-color:lightgray!important;color:black!important;}
+		.col-span-2 > input[type="button"]{margin:4px 0px;border-radius:20px;}
+		#helpBox {text-align:right;width:100px;margin-bottom:-20px;}
+		#helpBox > span {font-size:10px;border-bottom:solid 1px white;}
+		#helpBox > h5 {margin:-3px 0px 7px 0px;text-align:center;}
+		.col-span-6 h4 {margin: 5px 0px;}
+		#alertKeyboard {z-index:99999;font-size:150px;position:fixed;top:50px;bottom:0px;left:0px;right:0px;text-align:center;text-shadow:10px 10px 15px black;font-family:"Arial black";color:lightgray;opacity:0.5;}
+		#showTheLove {position:fixed;bottom:3px;left:0px;right:0px;text-align:center;}
+		#showTheLove > span {color:#E9020F;}
+		#selectPlaylist > a, #playlist > div > a {border-right:solid 1px gray;padding-right:5px;}
+	</style>
+</head>
+<body>
+<div class="col-span-6">
+	<div id="allOptions">
+		<div class="col-span-2">
+			<div class="optionBox">Display video </div><input id="showVideoOption" type="checkbox" checked><br>
+			<div class="optionBox">Autoplay next </div><input id="autoplayOption" type="checkbox" checked><br>
+		</div>
+		<div class="col-span-2">
+			<a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)">Pause</a><br>
+			<a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()">Quit songs</a><br>
+		</div>
+		<div class="col-span-2">
+			<input id="btnSaveSettingsId" type="button" value="Save settings" title="Not yet implemented"><br>
+			<input id="btnLoadSettingsId" type="button" value="Load settings" title="Not yet implemented">
+		</div>
+		<div id="helpBox" class="col-span-2">
+			<h5>Keyboard shortcuts:</h5>
+			<span><i>Show/hide video:</i> <b>h</b></span><br>
+			<span><i>Autoplay next:</i> <b>a</b></span><br>
+			<span><i>Pause/Play:</i> <b>p</b></span><br>
+			<span><i>Play next:</i> <b>n</b></span><br>
+			<span><i>Play previous:</i> <b>b</b></span><br>
+			<span><i>Quit/Clear:</i> <b>q</b></span><br>
+			<span><i>Save settings:</i> <b>s</b></span><br>
+			<span><i>Load settings:</i> <b>l</b></span><br>
+			<span><i>Hide/Show this:</i> <b>m</b></span><br>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+
+
+
+
+	<h4>Select the playlist:</h4>
+	<!-- This is where you add a new playlist. -->
+	<!-- The href attribute must correspond with the ID attribute below, where you add the songs -->
+	<div id="selectPlaylist">
+		<a href="#playlist1">Metallica</a>
+		<a href="#playlist2">Love Songs</a>
+		<a href="#playlist3">Mix</a>
+		<a href="#playlist4">Classical</a>
+	</div>
+
+
+
+	<br>
+	<h4>Select the song:</h4>
+	<!-- For each playlist you add the songs. -->
+	<!-- The ID of playlist <div> must correspond with the href attribtue above, where you add the playlist -->
+	<div id="playlist">
+		<div id="playlist1">
+			<a data-id="0FMfsT11pdA">Fade to black</a>
+			<a data-id="CD-E-LDc384">Enter sandman</a>
+			<a data-id="IyTA2Maj6Ug">Lords of summer</a>
+		</div>
+		<div id="playlist2">
+		</div>
+		<div id="playlist3">
+		</div>
+		<div id="playlist4">
+		</div>
+	</div>
+
+
+
+
+
+	<div id="alertKeyboard"></div>
+</div>
+<div class="col-span-6"><div id="frameDiv" ><center><div id="youtubeFrame"></div></center></div></div>
+</body>
+</html>
