@@ -50,6 +50,9 @@ Released under the MIT license - http://opensource.org/licenses/MIT
   <a data-id="KBx1Q3DEyDY">Wicked game - Chriss Isaak</a>
 </div>
 ```
+###Usage
+* There are a bunch of options in the interface, also by using the keyboard. For more, check the help menu in the program.
+
 ###Known issues
 * If the autoplay is not working in Chrome/IE, try to open the playlist page in a new browser window, NOT TAB, and then leave it in the background, but don't minimize it. In Firefox, seems to work fine.
 * In firefox/IE, the fancy ON/OFF checkboxes are deactivated.
