@@ -10,7 +10,7 @@ I don't like the fact that I have to sign-in on youtube in order to create a pla
 Released under the MIT license - http://opensource.org/licenses/MIT
 
 ###Live demo
-Go at http://mikeleshtembari.github.io/utplaylist/
+Go at http://mikeleshtembari.github.io/utplaylist/  
 or at http://mikele.xyz/utplaylist/utplaylist.html
 
 ###Installation
@@ -56,6 +56,9 @@ or at http://mikele.xyz/utplaylist/utplaylist.html
 ```
 ###Usage
 * There are a bunch of options in the interface, also by using the keyboard. For more, check the help menu in the program.
+
+###Christmas gift!
+If you want me to upload a playlist and use it live from my website, contact me ^_^
 
 ###Known issues
 * If the autoplay is not working in Chrome/IE, try to open the playlist page in a new browser window, NOT TAB, and then leave it in the background, but don't minimize it. In Firefox, seems to work fine.
