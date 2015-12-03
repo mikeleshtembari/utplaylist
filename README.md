@@ -10,8 +10,11 @@ I don't like the fact that I have to sign-in on youtube in order to create a pla
 Released under the MIT license - http://opensource.org/licenses/MIT
 
 ###Live demo
-Go at http://mikeleshtembari.github.io/utplaylist/
+Go at http://mikeleshtembari.github.io/utplaylist/  
 or at http://mikele.xyz/utplaylist/utplaylist.html
+
+###Christmas gift!
+If you want me to upload a playlist and use it live from my website, contact me ^_^
 
 ###Installation
 * Everything is already included in the 2 files `utplaylist.html` and `utplaylist.js`, so you just need to copy them into your folder
