@@ -7,7 +7,7 @@
  */
 
 var frameDivId = '#youtubeFrame';
-var frameHead = '<iframe id="iframeId" class="frameDefaultClass" src="//www.youtube.com/embed/';
+var frameHead = '<iframe id="iframeId" class="frameDefaultClass" src="http://www.youtube.com/embed/';
 var frameTail = '?enablejsapi=1&autoplay=1&color=white&showinfo=0" frameborder="0" allowfullscreen></iframe>';
 
 var videoBeingPlayed = '';
