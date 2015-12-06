@@ -5,51 +5,76 @@
 	<meta name="description" content="Simple Youtube Playlist with JavaScript and jQuery">
 	<meta name="keywords" content="youtube playlist,playlist,jquery playlist,mikele,shtembari,mikele shtembari,html5">
 	<meta name="author" content="Mikele Shtembari">
+	<meta name="viewport" content="width=320, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://www.youtube.com/iframe_api"></script>
 	<script src="utplaylist.js"></script>
 	<style type="text/css">
 		html, html a {font-family:monospace;font-size:14px;color:gray;text-decoration:none;}
 		#youtubeFrame {}
-		.frameDefaultClass {width:500px;height:350px;}
+		.frameDefaultClass {width:240px;height:180px;}
 		.active {display:block;}
 		.hidden {display:none;}
-		.col-span-6 {width:630px;float:left;}
-		.col-span-2 {width:145px;float:left;border:solid 1px gray;margin:2px;background-color:#eee;padding:8px;border-radius:10px;text-align:center;}
-		#allOptions input[type=checkbox] {-webkit-transition:background-position .33s ease;transition:background-position .33s ease;-webkit-appearance:none;appearance:none;/* in firefox there is a bug preventing styling of checkboxes, so I'll leave it for now */width:38px;height:16px;border:solid darkgray 1px;border-radius:20px;background-position:-24px -1px;margin:7px 0px;}
+		.col-span-2 {width:112px;float:left;border:solid 1px gray;margin:2px;background-color:#eee;padding:8px;border-radius:10px;text-align:center;}
+		#allOptions input[type=checkbox] {-webkit-transition:background-position .33s ease;transition:background-position .33s ease;-webkit-appearance:none;appearance:none;width:38px;height:16px;border:solid darkgray 1px;border-radius:20px;background-position:-24px -1px;margin:7px 0px;}
 		#allOptions input[type=checkbox]:checked {background-position:-1px -1px;}
-		.optionBox {width:105px;float:left;padding-top:3px;margin:4px 0px;}
-		#pauseVideoOption, #quitSongOption {text-decoration:none;color:gray;background-color:#E9020F;color:white;padding:1px 10px;border-radius:30px;border:solid 1px gray;line-height:29px;font-size:14px;}
+		.optionBox {width:60px;float:left;padding-top:3px;margin:4px 0px;}
+		#pauseVideoOption, #quitSongOption, #previousOption, #nextOption {text-decoration:none;color:gray;background-color:#E9020F;color:white;padding:1px 10px;border-radius:30px;border:solid 1px gray;line-height:29px;font-size:14px;}
 		#pauseVideoOption:hover, #quitSongOption:hover {background-color:lightgray!important;color:black!important;}
 		.col-span-2 > input[type="button"]{margin:4px 0px;border-radius:20px;}
-		#helpBox {text-align:right;width:100px;margin-bottom:-20px;}
-		#helpBox > span {font-size:10px;border-bottom:solid 1px white;}
-		#helpBox > h5 {margin:-3px 0px 7px 0px;text-align:center;}
-		.col-span-6 h4 {margin: 5px 0px;}
-		#alertKeyboard {z-index:99999;font-size:150px;position:fixed;top:50px;bottom:0px;left:0px;right:0px;text-align:center;text-shadow:10px 10px 15px black;font-family:"Arial black";color:lightgray;opacity:0.5;}
+		#helpBox {text-align:right;}
+		#helpBox > span {font-size:12px;border-bottom:solid 1px white;}
+		#helpBox > h3 {margin:-3px 0px 7px 0px;text-align:center;}
+		#leftHalf h4, #rightHalf h4 {margin:5px 0px;}
+		#alertKeyboard {z-index:99999;font-size:150px;position:fixed;top:40%;bottom:0px;left:0px;right:0px;text-align:center;text-shadow:10px 10px 15px black;font-family:"Arial black";color:lightgray;opacity:0.5;}
 		#showTheLove {position:fixed;bottom:3px;left:0px;right:0px;text-align:center;}
 		#showTheLove > span {color:#E9020F;}
-		#selectPlaylist > a, #playlist > div > a {border-right:solid 1px gray;padding-right:5px;}
+		#selectPlaylist {width: 90%; word-wrap: break-word; line-height: 30px;}
+		#selectPlaylist > a {padding:5px 2px 5px 10px;border-right:solid 1px gray;}
+		#playlist {line-height:30px;}
+		#playlist > div > a {padding:5px 10px 5px 10px;border-radius:5px}
+		#rightHalf {width:290px;margin:0 auto;background-color:#E9020F;border:solid 7px red;border-radius:10px;}
+		#leftHalf {width:270px;margin:0 auto;background-color:white;border:solid 7px darkgray;border-radius:10px;padding:10px;}
+		div#playlist a {display:block;border:solid 1px lightgray;margin:5px 0;}
+		.songButtonStyle {
+			background: rgba(255,255,255,1);
+			background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+			background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+			background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+			background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+			background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+			color: gray!important;
+			font-weight: normal!important;
+		}
+		body {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAMAAADzN3VRAAAAJ1BMVEW9vb2+vr7BwcHCwsLDw8PExMTFxcXHx8fJycnKysrLy8vMzMzPz88W53PxAAABE0lEQVR4ARXL0XUcUAyE0BfvSjAj919vjr/hPj8fL8cSURCZ4fNM6t0adM4in1n2gdFYcBVD18/2qWc4wUNPemKelQMTzdWAYPs2o7N4er9paL2kD/gbZ4mC6cXIvdR67RGqNgUrryeMaWz/pjTrjC93qNrfBeJ6HvqI1RhvRWfvvDUPtMbktxWLCvg0/thr7G/UExZ9h0KvR9yzpzo379jctlGZSfQHzb7TdE9MTUwPNuurs2jmLshOkyPhuUH3NFiqGt15KSisaU/HDsi8LctYzvDNfWD+JcP7Lji7dWPnLl8Gl4f8tdZD3Z8vLzDzPkPot/id/AzjbIzz7IkOMWb2OzN8/owczHfnJ2j+kJ/9+ed/FH8TKIU3BBUAAAAASUVORK5CYII=);
+			background-repeat:repeat;
+		}
 	</style>
 </head>
 <body>
-<div class="col-span-6">
+<div id="rightHalf"><div id="frameDiv" ><center><div id="youtubeFrame"></div></center></div></div>
+<div id="leftHalf">
 	<div id="allOptions">
 		<div class="col-span-2">
-			<div class="optionBox">Display video </div><input id="showVideoOption" type="checkbox" checked><br>
-			<div class="optionBox">Autoplay next </div><input id="autoplayOption" type="checkbox" checked><br>
+			<div class="optionBox" title="keyboard button 'h'">Display </div><input id="showVideoOption" type="checkbox" checked><br>
+			<div class="optionBox" title="keyboard button 'a'">Autoplay </div><input id="autoplayOption" type="checkbox" checked><br>
 		</div>
 		<div class="col-span-2">
-			<a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)">Pause</a><br>
-			<a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()">Quit songs</a><br>
+			<a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'p'">Pause</a><br>
+			<a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'q'">Quit songs</a><br>
 		</div>
+		<div style="clear:both;"></div>
 		<div class="col-span-2">
-			<input id="btnSaveSettingsId" type="button" value="Save settings" title="Not yet implemented"><br>
-			<input id="btnLoadSettingsId" type="button" value="Load settings" title="Not yet implemented">
+			<a id="nextOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'n'">Play next</a><br>
+			<a id="previousOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'b'">Play prev</a><br>
 		</div>
-		<div id="helpBox" class="col-span-2">
-			<h5>Keyboard shortcuts:</h5>
-			<span><i>Show/hide video:</i> <b>h</b></span><br>
+		<div id="showHelpText" class="col-span-2" style="background-color:white;padding:11px 8px;font-weight:bold;">Click me<br>for help,<br>or press 'm'</div>
+		<div id="helpBox" class="col-span-2" style="display:none;">
+			<h3>Keyboard shortcuts:</h3>
+			<span><i>Toggle video:</i> <b>h</b></span><br>
 			<span><i>Autoplay next:</i> <b>a</b></span><br>
 			<span><i>Pause/Play:</i> <b>p</b></span><br>
 			<span><i>Play next:</i> <b>n</b></span><br>
@@ -57,7 +82,7 @@
 			<span><i>Quit/Clear:</i> <b>q</b></span><br>
 			<span><i>Save settings:</i> <b>s</b></span><br>
 			<span><i>Load settings:</i> <b>l</b></span><br>
-			<span><i>Hide/Show this:</i> <b>m</b></span><br>
+			<span><i>Toggle help:</i> <b>m</b></span><br>
 		</div>
 		<div style="clear:both"></div>
 	</div>
@@ -120,6 +145,6 @@
 
 	<div id="alertKeyboard"></div>
 </div>
-<div class="col-span-6"><div id="frameDiv" ><center><div id="youtubeFrame"></div></center></div></div>
+
 </body>
 </html>
