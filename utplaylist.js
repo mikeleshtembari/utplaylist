@@ -1,5 +1,5 @@
 /* utplaylist.js
- * Youtube simpel playlist v1.0.0
+ * Youtube simple playlist v1.1.0
  * Copyright (c) 2015 Mikele Shtembari - github.com/mikeleshtembari
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
@@ -7,7 +7,7 @@
  */
 
 var frameDivId = '#youtubeFrame';
-var frameHead = '<iframe id="iframeId" class="frameDefaultClass" src="https://www.youtube.com/embed/';
+var frameHead = '<iframe id="iframeId" class="frameDefaultClass" src="//www.youtube.com/embed/';
 var frameTail = '?enablejsapi=1&autoplay=1&color=white&showinfo=0" frameborder="0" allowfullscreen></iframe>';
 
 var videoBeingPlayed = '';
@@ -21,7 +21,7 @@ var KEY_SAVE = '115'; // s
 var KEY_LOAD = '108'; // l
 var KEY_HIDE_HELP = '109'; // m
 var KEY_PLAY_NEXT = '110'; // n
-var KEY_PLAY_PREV = '98';
+var KEY_PLAY_PREV = '98'; // b
 
 var autoplayEnabled = true;
 var showVideoChecked = true;
@@ -72,14 +72,17 @@ $(function getLinkAndAddSong () {
 		var videoId = $(this).attr('data-id');
 		videoBeingPlayed = this;
 		$(frameDivId).html(frameHead + videoId + frameTail);
+		$(this).css({backgroundColor: '#989293', color: 'white', fontWeight: 'bold'})
+			.siblings().css({backgroundColor: 'transparent', color: 'initial', fontWeight: 'initial'});
 		new YT.Player('iframeId', {events: {'onStateChange': onVideoEvent}});
 	});
 });
 
 $(function selectTheList () {
-	$('#selectPlaylist > a').click(function () {
+	$('#selectPlaylist > a').append(' ').click(function () {
 		$($(this).attr('href')).fadeIn().siblings().fadeOut();
-		$(this).css('border-bottom', 'solid 1px darkgray').siblings().css('border-bottom', 'none');
+		$(this).css('border', 'solid 1px darkgray').siblings().css('border', 'none').css('border-right', 'solid 1px gray');
+		$(this).prev().css('border-right', 'none');
 	});
 });
 
@@ -142,7 +145,11 @@ $(function keys () {
 			alertFade('Prev');
 			$(videoBeingPlayed).prev().triggerHandler('click');
 		}
-
+		if (event.which == '99') {
+			alertFade('Real click');
+			document.getElementById('iframeId').contentWindow.$('button.ytp-play-button.ytp-button').trigger('click');
+			echo(document.getElementById('iframeId'));
+		}
 	});
 });
 
