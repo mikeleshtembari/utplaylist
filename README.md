@@ -1,4 +1,4 @@
-# utplaylist 1.0.0
+# utplaylist v1.1.0
 ###A relatively simple youtube playlist with autoplay
 * You can include it in your website or use it locally
 * Made with HTML, CSS, jQuery and just a lil' from youtube_iframe_api
@@ -63,6 +63,11 @@ If you want me to upload a playlist and use it live from my website, contact me 
 ###Known issues
 * If the autoplay is not working in Chrome/IE, try to open the playlist page in a new browser window, NOT TAB, and then leave it in the background, but don't minimize it. In Firefox, seems to work fine.
 * In firefox/IE, the fancy ON/OFF checkboxes are deactivated.
+* In some phones, depending also on the browser, the video may not start automatically.
+
+###Version 1.1.0
+* Changed design. Now feels like a mobile app
+* Removed 'save' and 'load' buttons - were useless
 
 ###Version 1.0.0
 * Initial release
