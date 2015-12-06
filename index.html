@@ -1,4 +1,3 @@
-
 <head>
 	<title>Simple Youtube Playlist</title>
 	<meta charset="UTF-8">
@@ -16,7 +15,7 @@
 		.hidden {display:none;}
 		.col-span-6 {width:630px;float:left;}
 		.col-span-2 {width:145px;float:left;border:solid 1px gray;margin:2px;background-color:#eee;padding:8px;border-radius:10px;text-align:center;}
-		#allOptions input[type=checkbox] {-webkit-transition:background-position .33s ease;transition:background-position .33s ease;-webkit-appearance:none;appearance:none;/* in firefox there is a bug preventing styling of checkboxes, so I'll leave it for now */width:38px;height:16px;border:solid darkgray 1px;border-radius:20px;background-position:-24px -1px;margin:7px 0px;}
+		#allOptions input[type=checkbox] {-webkit-transition:background-position .33s ease;transition:background-position .33s ease;-webkit-appearance:none;appearance:none;width:38px;height:16px;border:solid darkgray 1px;border-radius:20px;background-position:-24px -1px;margin:7px 0px;}
 		#allOptions input[type=checkbox]:checked {background-position:-1px -1px;}
 		.optionBox {width:105px;float:left;padding-top:3px;margin:4px 0px;}
 		#pauseVideoOption, #quitSongOption {text-decoration:none;color:gray;background-color:#E9020F;color:white;padding:1px 10px;border-radius:30px;border:solid 1px gray;line-height:29px;font-size:14px;}
@@ -29,7 +28,10 @@
 		#alertKeyboard {z-index:99999;font-size:150px;position:fixed;top:50px;bottom:0px;left:0px;right:0px;text-align:center;text-shadow:10px 10px 15px black;font-family:"Arial black";color:lightgray;opacity:0.5;}
 		#showTheLove {position:fixed;bottom:3px;left:0px;right:0px;text-align:center;}
 		#showTheLove > span {color:#E9020F;}
-		#selectPlaylist > a, #playlist > div > a {border-right:solid 1px gray;padding-right:5px;}
+		#selectPlaylist {width: 90%; word-wrap: break-word; line-height: 30px;}
+		#selectPlaylist > a {padding:5px 2px 5px 10px;border-right:solid 1px gray;}
+		#playlist {line-height:30px;}
+		#playlist > div > a {padding:5px 10px 5px 10px;border-radius:5px}
 	</style>
 </head>
 <body>
@@ -42,10 +44,6 @@
 		<div class="col-span-2">
 			<a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)">Pause</a><br>
 			<a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()">Quit songs</a><br>
-		</div>
-		<div class="col-span-2">
-			<input id="btnSaveSettingsId" type="button" value="Save settings" title="Not yet implemented"><br>
-			<input id="btnLoadSettingsId" type="button" value="Load settings" title="Not yet implemented">
 		</div>
 		<div id="helpBox" class="col-span-2">
 			<h5>Keyboard shortcuts:</h5>
@@ -74,6 +72,7 @@
 		<a href="#playlist2">Love Songs</a>
 		<a href="#playlist3">Mix</a>
 		<a href="#playlist4">Classical</a>
+		<a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a><a href="#">lalalalal</a>
 	</div>
 
 
@@ -84,33 +83,33 @@
 	<!-- The ID of playlist <div> must correspond with the href attribtue above, where you add the playlist -->
 	<div id="playlist">
 		<div id="playlist1">
-			<a data-id="0FMfsT11pdA">Fade to black</a>
-			<a data-id="CD-E-LDc384">Enter sandman</a>
-			<a data-id="IyTA2Maj6Ug">Lords of summer</a>
-			<a data-id="pxg-re3woo0">That was just your life</a>
-			<a data-id="3w1D3eXMFEM">Blackened Live</a>
+			<a data-id="0FMfsT11pdA">Fade to black</a><br>
+			<a data-id="CD-E-LDc384">Enter sandman</a><br>
+			<a data-id="IyTA2Maj6Ug">Lords of summer</a><br>
+			<a data-id="pxg-re3woo0">That was just your life</a><br>
+			<a data-id="3w1D3eXMFEM">Blackened Live</a><br>
 		</div>
 		<div id="playlist2">
-			<a data-id="KBx1Q3DEyDY">Chris Isaak - Wicked Game</a>
-			<a data-id="hq2KgzKETBw">Bryan Adams - Have You Ever Really Loved A Woman?</a>
-			<a data-id="n2ida4TQuAc">Reamon - Supergirl</a>
-			<a data-id="koJlIGDImiU">Enrique Iglesias - Hero</a>
-			<a data-id="KAzV2PxbzvA">STING - SHAPE OF MY HEART</a>
+			<a data-id="KBx1Q3DEyDY">Chris Isaak - Wicked Game</a><br>
+			<a data-id="hq2KgzKETBw">Bryan Adams - Have You Ever Really Loved A Woman?</a><br>
+			<a data-id="n2ida4TQuAc">Reamon - Supergirl</a><br>
+			<a data-id="koJlIGDImiU">Enrique Iglesias - Hero</a><br>
+			<a data-id="KAzV2PxbzvA">STING - SHAPE OF MY HEART</a><br>
 		</div>
 		<div id="playlist3">
-			<a data-id="fJ9rUzIMcZQ">Queen - Bohemian Rhapsody</a>
-			<a data-id="Ot6pSrKT1oc">EUROPA - Santana</a>
-			<a data-id="sZV72-Wfbsk">Susperia - Chemistry</a>
-			<a data-id="VG98bSLfahk">Elita 5 - Te pres</a>
-			<a data-id="lL1QE_eIeoA">The midnight carnival</a>
-			<a data-id="7-i-LhRudP4">Stratovarius - Stratofortress</a>
+			<a data-id="fJ9rUzIMcZQ">Queen - Bohemian Rhapsody</a><br>
+			<a data-id="Ot6pSrKT1oc">EUROPA - Santana</a><br>
+			<a data-id="sZV72-Wfbsk">Susperia - Chemistry</a><br>
+			<a data-id="VG98bSLfahk">Elita 5 - Te pres</a><br>
+			<a data-id="lL1QE_eIeoA">The midnight carnival</a><br>
+			<a data-id="7-i-LhRudP4">Stratovarius - Stratofortress</a><br>
 		</div>
 		<div id="playlist4">
-			<a data-id="3X9LvC9WkkQ">Johannes Brahms - Hungarian Dance No. 5</a>
-			<a data-id="mmCnQDUSO4I">Dmitri Shostakovich - Waltz No. 2</a>
-			<a data-id="gPybrOxRoT4">Johann Strauss II - Die Fledermaus Overture</a>
-			<a data-id="fBA-38mzabs">Chopin - Fantaisie Impromptu</a>
-			<a data-id="qnEv4GpEWUE">Liszt - Hungarian Rhapsody No. 2 Piano</a>
+			<a data-id="3X9LvC9WkkQ">Johannes Brahms - Hungarian Dance No. 5</a><br>
+			<a data-id="mmCnQDUSO4I">Dmitri Shostakovich - Waltz No. 2</a><br>
+			<a data-id="gPybrOxRoT4">Johann Strauss II - Die Fledermaus Overture</a><br>
+			<a data-id="fBA-38mzabs">Chopin - Fantaisie Impromptu</a><br>
+			<a data-id="qnEv4GpEWUE">Liszt - Hungarian Rhapsody No. 2 Piano</a><br>
 		</div>
 	</div>
 
