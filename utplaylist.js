@@ -8,7 +8,7 @@
 
 var frameDivId = '#youtubeFrame';
 var frameHead = '<iframe id="iframeId" class="frameDefaultClass" src="https://www.youtube.com/embed/';
-var frameTail = '?enablejsapi=1&autoplay=1&color=white&showinfo=0&rel=0&controls=0&cc_load_policy=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>';
+var frameTail = '?enablejsapi=1&autoplay=1&color=white&showinfo=0&rel=0&controls=0&cc_load_policy=0&iv_load_policy=3&disablekb=1" frameborder="0" allowfullscreen></iframe>';
 
 var videoBeingPlayed = '';
 // keyboar keys
