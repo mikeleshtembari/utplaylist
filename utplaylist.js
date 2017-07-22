@@ -13,13 +13,13 @@ var frameTail = '?enablejsapi=1&autoplay=1&color=white&showinfo=0&rel=0&controls
 var videoBeingPlayed = '';
 // keyboar keys
 var KEY_QUIT = '113'; // q
-var KEY_HIDE = '104'; // h
+var KEY_HIDE = '100'; // d
 var KEY_PAUSE = '32'; // space
 var KEY_PAUSE2 = '112'; // p
 var KEY_AUTOPLAY = '97'; // a
-var KEY_SAVE = '115'; // s
+var KEY_SHUFFLE = '115'; // s
 var KEY_LOAD = '108'; // l
-var KEY_HIDE_HELP = '109'; // m
+var KEY_HIDE_HELP = '104'; // h
 var KEY_PLAY_NEXT = '110'; // n
 var KEY_PLAY_PREV = '98'; // b
 
@@ -48,6 +48,13 @@ function onVideoEvent (event) {
 
 function playNextSong() {
 	$(videoBeingPlayed).next().triggerHandler('click');
+}
+
+function shuffleCurrPlaylist() {
+	var currPlaylist = document.querySelector('#playlist > div[style="display: block;"');
+	for (var i = currPlaylist.children.length; i >= 0; i--) {
+	currPlaylist.appendChild(currPlaylist.children[Math.random() * i | 0]);
+	}
 }
 
 $(function pauseVideo () {
@@ -136,8 +143,9 @@ $(function keys () {
 			$('#autoplayOption').prop('checked', autoplayEnabled);
 			alertFade('Auto ' + (autoplayEnabled ? 'ON' : 'OFF'));
 		}
-		if (event.which == KEY_SAVE) {
-			alertFade('Saved');
+		if (event.which == KEY_SHUFFLE) {
+			alertFade('Shuffle');
+			shuffleCurrPlaylist();
 		}
 		if (event.which == KEY_LOAD) {
 			alertFade('Loaded');
