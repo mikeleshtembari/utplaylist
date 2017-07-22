@@ -60,13 +60,13 @@ function shuffleCurrPlaylist() {
 $(function pauseVideo () {
 	$('#pauseVideoOption').click(function() {
 		if ($(this).hasClass('isPlaying')) {
-			$(this).removeClass('isPlaying').addClass('isPaused').html('Play');
+			$(this).removeClass('isPlaying').addClass('isPaused').html('Play (p)');
 			document.getElementsByTagName('iframe')[0].contentWindow.postMessage(
 				'{"event":"command","func":"pauseVideo","args":""}', '*');
 			return;
 		}
 		if ($(this).hasClass('isPaused') ){
-			$(this).removeClass('isPaused').addClass('isPlaying').html('Pause');
+			$(this).removeClass('isPaused').addClass('isPlaying').html('Pause (p)');
 			document.getElementsByTagName('iframe')[0].contentWindow.postMessage(
 				'{"event":"command","func":"playVideo","args":""}', '*');
 			return;
@@ -188,6 +188,16 @@ function clearFrame() {
 	$('#playlist > div > a').addClass('songButtonStyle');
 	$(frameDivId).html('');
 }
+
+
+$( document ).ready(function() {      
+    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+    if (isMobile.matches) {
+        $('.mobile-only').show();
+        $('.desktop-only').hide();
+    }
+ });
 
 window.onload = function () {
 	echo('Howdy!\nSimple Youtube Playlist v.1.0\nLicence: MIT\nAuthor: Mikele Shtembari\ngithub.com/mikeleshtembari');
