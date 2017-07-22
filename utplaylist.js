@@ -189,6 +189,16 @@ function clearFrame() {
 	$(frameDivId).html('');
 }
 
+
+$( document ).ready(function() {      
+    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+    if (isMobile.matches) {
+        $('.mobile-only').show();
+        $('.desktop-only').hide();
+    }
+ });
+
 window.onload = function () {
 	echo('Howdy!\nSimple Youtube Playlist v.1.0\nLicence: MIT\nAuthor: Mikele Shtembari\ngithub.com/mikeleshtembari');
 	$('#playlist > div').addClass('hidden');
