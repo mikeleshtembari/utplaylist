@@ -60,13 +60,13 @@ function shuffleCurrPlaylist() {
 $(function pauseVideo () {
 	$('#pauseVideoOption').click(function() {
 		if ($(this).hasClass('isPlaying')) {
-			$(this).removeClass('isPlaying').addClass('isPaused').html('Play (p)');
+			$(this).removeClass('isPlaying').addClass('isPaused').html('Play');
 			document.getElementsByTagName('iframe')[0].contentWindow.postMessage(
 				'{"event":"command","func":"pauseVideo","args":""}', '*');
 			return;
 		}
 		if ($(this).hasClass('isPaused') ){
-			$(this).removeClass('isPaused').addClass('isPlaying').html('Pause (p)');
+			$(this).removeClass('isPaused').addClass('isPlaying').html('Pause');
 			document.getElementsByTagName('iframe')[0].contentWindow.postMessage(
 				'{"event":"command","func":"playVideo","args":""}', '*');
 			return;
