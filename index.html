@@ -231,36 +231,36 @@
     <div id="leftHalf">
         <div id="allOptions">
             <div class="col-span-2">
-                <div class="optionBox" title="keyboard button 'h'">Display (d)</div>
+                <div class="optionBox" title="keyboard button 'h'">Display<span class="desktop-only"> (d)</span></div>
                 <input id="showVideoOption" type="checkbox" checked>
                 <br>
-                <div class="optionBox" title="keyboard button 'a'">Autoplay (a)</div>
+                <div class="optionBox" title="keyboard button 'a'">Autoplay<span class="desktop-only"> (a)</span></div>
                 <input id="autoplayOption" type="checkbox" checked>
                 <br>
             </div>
             <div class="col-span-2">
-                <a id="shufflePlaylist" href="javascript:void(0)" onclick="shuffleCurrPlaylist()" title="keyboard button 's'">Shuffle (s)</a>
+                <a id="shufflePlaylist" href="javascript:void(0)" onclick="shuffleCurrPlaylist()" title="keyboard button 's'">Shuffle<span class="desktop-only"> (s)</span></a>
                 <br>
-                <a id="nextOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'n'">Next (n)</a>
+                <a id="nextOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'n'">Next<span class="desktop-only"> (n)</span></a>
                 <br>
-                <a id="previousOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'b'">Prev (b)</a>
+                <a id="previousOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'b'">Prev<span class="desktop-only"> (b)</span></a>
                 <br>
             </div>
             <div style="clear:both;"></div>
             <div class="col-span-2">
-                <a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'p'">Pause (p)</a>
+                <a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'p'">Pause<span class="desktop-only"> (p)</span></a>
                 <br>
-                <a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'q'">Stop (q)</a>
+                <a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'q'">Stop<span class="desktop-only"> (q)</span></a>
                 <br>
             </div>
             <div id="showHelpText" class="col-span-2" style="background-color:white;padding:11px 8px;font-weight:bold;">Click me
                 <br>for help,
-                <br>or press 'h'</div>
+                <br><span class="desktop-only">or press 'h'</span></div>
             <div id="helpBox" class="col-span-2" style="display:none;">
                 <h3>Keyboard shortcuts:</h3>
                 <span><i>Toggle video:</i> <b>d</b></span>
                 <br>
-                <span><i>Autoplay next:</i> <b>a</b></span>
+                <span><i>Autoplay:</i> <b>a</b></span>
                 <br>
                 <span><i>Pause/Play:</i> <b>p</b></span>
                 <br>
@@ -268,7 +268,7 @@
                 <br>
                 <span><i>Play next:</i> <b>n</b></span>
                 <br>
-                <span><i>Play previous:</i> <b>b</b></span>
+                <span><i>Play prev:</i> <b>b</b></span>
                 <br>
                 <span><i>Stop/Quit:</i> <b>q</b></span>
                 <br>
@@ -277,7 +277,7 @@
             </div>
             <div style="clear:both"></div>
         </div>
-        <h4>Select the playlist:</h4>
+        <h4>Select the playlist <br><span class="mobile-only">(scroll list)</span></h4>
         <!-- This is where you add a new playlist. -->
         <!-- The href attribute must correspond with the ID attribute below, where you add the songs -->
         <div id="selectPlaylist">
@@ -287,7 +287,7 @@
             <a href="#playlist4">Classical</a>
         </div>
         <br>
-        <h4>Select the song:</h4>
+        <h4>Select the song <br><span class="mobile-only">(scroll list)</span></h4>
         <!-- For each playlist you add the songs. -->
         <!-- The ID of playlist <div> must correspond with the href attribtue above, where you add the playlist -->
         <div id="playlist">
@@ -323,6 +323,7 @@
         </div>
         <div id="alertKeyboard"></div>
     </div>
+    <br><br><br><br><br><br><br><br>
 </body>
 
 </html>
