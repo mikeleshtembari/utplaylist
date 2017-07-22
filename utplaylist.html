@@ -157,8 +157,13 @@
             display: block;
             text-align: center;
             font-weight: bold;
+            transition-duration: 0.13s;
         }
-
+        #selectPlaylist > a:hover,
+        #playlist > div > a:hover {
+            color: #e9020f!important;
+            background: #eee;
+        }
         #playlist {
             line-height: 30px;
             height: 200px;
@@ -169,6 +174,7 @@
         #playlist > div > a {
             padding: 5px 10px 5px 10px;
             border-radius: 5px
+            transition-duration: 0.13s;
         }
 
         #rightHalf {
