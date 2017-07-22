@@ -72,7 +72,8 @@
         #pauseVideoOption,
         #quitSongOption,
         #previousOption,
-        #nextOption {
+        #nextOption,
+        #shufflePlaylist {
             text-decoration: none;
             color: gray;
             background-color: #E9020F;
@@ -161,6 +162,7 @@
         }
         #selectPlaylist > a:hover,
         #playlist > div > a:hover {
+            color: #e9020f!important;
             background: #eee;
         }
         #playlist {
@@ -230,44 +232,48 @@
     <div id="leftHalf">
         <div id="allOptions">
             <div class="col-span-2">
-                <div class="optionBox" title="keyboard button 'h'">Display </div>
+                <div class="optionBox" title="keyboard button 'h'">Display (d)</div>
                 <input id="showVideoOption" type="checkbox" checked>
                 <br>
-                <div class="optionBox" title="keyboard button 'a'">Autoplay </div>
+                <div class="optionBox" title="keyboard button 'a'">Autoplay (a)</div>
                 <input id="autoplayOption" type="checkbox" checked>
                 <br>
             </div>
             <div class="col-span-2">
-                <a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'p'">Pause</a>
+                <a id="pauseVideoOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'p'">Pause (p)</a>
                 <br>
-                <a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'q'">Quit songs</a>
+                <a id="quitSongOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'q'">Stop (q)</a>
                 <br>
             </div>
             <div style="clear:both;"></div>
             <div class="col-span-2">
-                <a id="nextOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'n'">Play next</a>
+                <a id="shufflePlaylist" href="javascript:void(0)" onclick="shuffleCurrPlaylist()" title="keyboard button 's'">Shuffle list (s)</a>
                 <br>
-                <a id="previousOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'b'">Play prev</a>
+                <a id="nextOption" href="javascript:void(0)" onclick="clearFrame()" title="keyboard button 'n'">Play next (n)</a>
+                <br>
+                <a id="previousOption" class="isPlaying" href="javascript:void(0)" title="keyboard button 'b'">Play prev (b)</a>
                 <br>
             </div>
             <div id="showHelpText" class="col-span-2" style="background-color:white;padding:11px 8px;font-weight:bold;">Click me
                 <br>for help,
-                <br>or press 'm'</div>
+                <br>or press 'h'</div>
             <div id="helpBox" class="col-span-2" style="display:none;">
                 <h3>Keyboard shortcuts:</h3>
-                <span><i>Toggle video:</i> <b>h</b></span>
+                <span><i>Toggle video:</i> <b>d</b></span>
                 <br>
                 <span><i>Autoplay next:</i> <b>a</b></span>
                 <br>
                 <span><i>Pause/Play:</i> <b>p</b></span>
                 <br>
+                <span><i>Shuffle list:</i> <b>s</b></span>
+                <br>
                 <span><i>Play next:</i> <b>n</b></span>
                 <br>
                 <span><i>Play previous:</i> <b>b</b></span>
                 <br>
-                <span><i>Quit/Clear:</i> <b>q</b></span>
+                <span><i>Stop/Quit:</i> <b>q</b></span>
                 <br>
-                <span><i>Toggle help:</i> <b>m</b></span>
+                <span><i>Toggle help:</i> <b>h</b></span>
                 <br>
             </div>
             <div style="clear:both"></div>
